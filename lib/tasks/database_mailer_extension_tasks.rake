@@ -6,7 +6,8 @@ namespace :radiant do
       task :migrate => :environment do
         require 'radiant/extension_migrator'
         
-        DatabaseMailerExtension.migrator.set_schema_version(1) if DatabaseMailerExtension.migrator.current_version > 1
+        
+        #DatabaseMailerExtension.migrator.set_schema_version(1) if DatabaseMailerExtension.migrator.current_version > 1
         
         if ENV["VERSION"]
           DatabaseMailerExtension.migrator.migrate(ENV["VERSION"].to_i)
